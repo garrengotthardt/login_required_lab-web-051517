@@ -1,17 +1,15 @@
 class SecretsController < ApplicationController
 
-  # before_action :require_login
+   before_action :require_login
 
   def show
     # render :show
-    if current_user == nil
-      redirect_to '/login'
-    end
+
   end
 
-  # private
-  #
-  # def require_login
-  #   return head(:forbidden) unless session.include? :name
-  # end
+  private
+
+  def require_login
+    redirect_to '/login' unless session.include? :name
+  end
 end
